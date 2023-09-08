@@ -21,8 +21,8 @@ plt.plot(y, '-m')
 # plt.show()
 
 #adding more powered columns
-polyFeart = PolynomialFeatures(degree=1)
-x = polyFeart.fit_transform(x)
+polyFeat = PolynomialFeatures(degree=1)
+x = polyFeat.fit_transform(x)
 print(x)
 
 #training data
@@ -34,3 +34,9 @@ print(f'Accuracy:{round(accuracy*100, 3)} %')
 y0 = model.predict(x)
 plt.plot(y0, '--b')
 plt.show()
+
+#prediction
+days = 2
+print('-------------------------PREDICTION----------------------')
+print(f'Prediction - Cases after {days} days: ', end = '')
+print(round(int(model.predict(polyFeat.fit_transform([[234 + days]])))/1000000, 2), 'Million')
