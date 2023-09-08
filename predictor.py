@@ -17,7 +17,7 @@ print('-------------------------PREPARE DATA----------------------')
 x = np.array(data['id']).reshape(-1, 1)
 y = np.array(data['cases']).reshape(-1, 1)
 #ploting to a  visual graph
-plt.plot(y, '-m')
+plt.plot(y, '-m.')
 # plt.show()
 
 #adding more powered columns
@@ -32,11 +32,15 @@ model.fit(x, y)
 accuracy = model.score(x, y)
 print(f'Accuracy:{round(accuracy*100, 3)} %')
 y0 = model.predict(x)
-plt.plot(y0, '--b')
-plt.show()
 
 #prediction
-days = 2
+days = 30
 print('-------------------------PREDICTION----------------------')
 print(f'Prediction - Cases after {days} days: ', end = '')
 print(round(int(model.predict(polyFeat.fit_transform([[234 + days]])))/1000000, 2), 'Million')
+
+x1 = np.array(list(range(1, 234 + days))).reshape(-1, 1)
+y1 = model.predict(polyFeat.fit_transform(x1))
+plt.plot(y1, '--r')
+plt.plot(y0, '--b')
+plt.show()
