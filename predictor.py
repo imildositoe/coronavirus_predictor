@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.preprocessing import PolynomialFeatures
 
 #load data
 data = pd.read_csv('corona_cases.csv')
@@ -17,3 +18,9 @@ y = np.array(data['cases']).reshape(-1, 1)
 #ploting to a  visual graph
 plt.plot(y, '-m')
 plt.show()
+
+#adding more powered columns
+polyFeart = PolynomialFeatures(degree=2)
+x = polyFeart.fit_transform(x)
+print(x)
+
