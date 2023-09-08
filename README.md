@@ -18,6 +18,6 @@ The source code is divided by:
 
 The result of the code is shown as a ploted linear regression function visualizing the the best fit model for the given number of cases as well as the _prediction_ in 30 days. 
 The below lines can be used as a legend for the generated graph (color: legend):
-> *Magenta:* initial given number of cases<br/>
-> *Blue:* traininng function<br/>
-> *Red:* prediction 1
+> **Magenta:** initial given number of cases<br/>
+> **Blue:** traininng function<br/>
+> **Red:** prediction 1
